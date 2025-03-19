@@ -30,6 +30,8 @@ ng serve
 ```
 La aplicación estará disponible en `http://localhost:4200/`.
 
+Puede ser usado con el proyecto backend: https://github.com/gabrielgonzalez1802/crud-cards-api
+
 ## Estructura del Proyecto
 - `src/app/componentes`: Contiene los componentes de la aplicación.
 - `src/app/servicios`: Contiene los servicios para manejar la lógica de negocio.
