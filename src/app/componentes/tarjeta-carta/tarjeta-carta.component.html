@@ -1,0 +1,28 @@
+<div class="yugioh-card">
+    <div class="card-header">
+        <h5>{{ carta.nombre | uppercase }}</h5>
+    </div>
+    
+    <div class="card-image-container">
+        <img [src]="carta.imagenUrl" class="card-image" [alt]="carta.nombre">
+    </div>
+
+    <div class="card-type">
+        [{{ getTipoNombre(carta.tipoCarta) }}]
+    </div>
+
+    <div class="card-description">
+        {{ carta.descripcion }}
+    </div>
+
+    <div class="card-stats">
+        <div class="stat">
+            <span class="stat-label">ATK/</span>
+            {{ carta.ataque }}
+        </div>
+        <div class="stat">
+            <span class="stat-label">DEF/</span>
+            {{ carta.defensa }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,177 @@
+<div class="creation-container">
+  <div class="container">
+    <div class="header-container">
+      <div class="title-container">
+        <h1 class="page-title">Creador de Cartas</h1>
+      </div>
+      <div class="button-container">
+        <button class="btn btn-primary" (click)="listadoDeCartas()">Listado de Cartas</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-container">
+          <form #cartaForm="ngForm" (ngSubmit)="onSubmit(cartaForm)">
+            <input type="hidden" name="id" [(ngModel)]="carta.id" />
+            <div class="input-group">
+              <label for="nombreCarta" class="form-label">Nombre de la Carta</label>
+              <div class="input-wrapper">
+                <input type="text" 
+                       class="form-control" 
+                       id="nombreCarta" 
+                       [(ngModel)]="carta.nombre" 
+                       name="nombreCarta" 
+                       #nombre="ngModel"
+                       required
+                       minlength="3"
+                       placeholder="Ingresa el nombre de la carta">
+                <span class="error-message" [class.visible]="nombre.invalid && (nombre.dirty || nombre.touched || formSubmitted)">
+                  <span *ngIf="nombre.errors?.['required']">El nombre es requerido</span>
+                  <span *ngIf="nombre.errors?.['minlength']">El nombre debe tener al menos 3 caracteres</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label for="descripcionCarta" class="form-label">Descripción</label>
+              <div class="input-wrapper">
+                <textarea class="form-control" 
+                          id="descripcionCarta" 
+                          [(ngModel)]="carta.descripcion" 
+                          name="descripcionCarta"
+                          #descripcion="ngModel"
+                          required
+                          minlength="10"
+                          rows="3" 
+                          placeholder="Ingresa la descripción de la carta"></textarea>
+                <span class="error-message" [class.visible]="descripcion.invalid && (descripcion.dirty || descripcion.touched || formSubmitted)">
+                  <span *ngIf="descripcion.errors?.['required']">La descripción es requerida</span>
+                  <span *ngIf="descripcion.errors?.['minlength']">La descripción debe tener al menos 10 caracteres</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label for="tipoCarta" class="form-label">Tipo de Carta</label>
+              <div class="input-wrapper">
+                <select class="form-select" 
+                        id="tipoCarta" 
+                        [(ngModel)]="carta.tipoCarta" 
+                        name="tipoCarta"
+                        #tipo="ngModel"
+                        required>
+                  <option value="">Selecciona un tipo</option>
+                  <option value="CRIATURA">Criatura</option>
+                  <option value="HECHIZO">Hechizo</option>
+                  <option value="ARTEFACTO">Artefacto</option>
+                </select>
+                <span class="error-message" [class.visible]="tipo.invalid && (tipo.dirty || tipo.touched || formSubmitted)">
+                  Debes seleccionar un tipo de carta
+                </span>
+              </div>
+            </div>
+
+          <!-- Campo Tipo de Monstruo, visible solo si Tipo de Carta es "Criatura" -->
+          <div class="input-group" *ngIf="carta.tipoCarta === 'CRIATURA'">
+            <label for="tipoMonstruo" class="form-label">Tipo de Monstruo</label>
+            <div class="input-wrapper">
+              <select class="form-select" 
+                      id="tipoMonstruo" 
+                      [(ngModel)]="carta.tipoMonstruo" 
+                      name="tipoMonstruo"
+                      #tipoMonstruo="ngModel"
+                      required>
+                <option value="">Selecciona un tipo de monstruo</option>
+                <option value="DRAGON">DRAGON</option>
+                <option value="BESTIA">BESTIA</option>
+                <option value="GUERRERO">GUERRERO</option>
+                <option value="MAGO">MAGO</option>
+                <option value="FUEGO">FUEGO</option>
+                <option value="AGUA">AGUA</option>
+                <option value="TIERRA">TIERRA</option>
+                <option value="LUZ">LUZ</option>
+                <option value="OSCURIDAD">OSCURIDAD</option>
+              </select>
+              <span class="error-message" [class.visible]="tipoMonstruo.invalid && (tipoMonstruo.dirty || tipoMonstruo.touched || formSubmitted)">
+                Debes seleccionar un tipo de monstruo
+              </span>
+            </div>
+          </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <label for="ataque" class="form-label">Ataque</label>
+                  <div class="input-wrapper">
+                    <input type="number" 
+                           class="form-control" 
+                           id="ataque" 
+                           [(ngModel)]="carta.ataque" 
+                           name="ataque"
+                           #ataque="ngModel"
+                           required
+                           min="0"
+                           max="9999"
+                           placeholder="0">
+                    <span class="error-message" [class.visible]="ataque.invalid && (ataque.dirty || ataque.touched || formSubmitted)">
+                      <span *ngIf="ataque.errors?.['required']">El ataque es requerido</span>
+                      <span *ngIf="ataque.errors?.['min'] || ataque.errors?.['max']">El ataque debe estar entre 0 y 9999</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <label for="defensa" class="form-label">Defensa</label>
+                  <div class="input-wrapper">
+                    <input type="number" 
+                           class="form-control" 
+                           id="defensa" 
+                           [(ngModel)]="carta.defensa" 
+                           name="defensa"
+                           #defensa="ngModel"
+                           required
+                           min="0"
+                           max="9999"
+                           placeholder="0">
+                    <span class="error-message" [class.visible]="defensa.invalid && (defensa.dirty || defensa.touched || formSubmitted)">
+                      <span *ngIf="defensa.errors?.['required']">La defensa es requerida</span>
+                      <span *ngIf="defensa.errors?.['min'] || defensa.errors?.['max']">La defensa debe estar entre 0 y 9999</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label for="imagen" class="form-label">URL de la Imagen</label>
+              <div class="input-wrapper">
+                <input type="text" 
+                       class="form-control" 
+                       id="imagen" 
+                       [(ngModel)]="carta.imagenUrl" 
+                       name="imagen"
+                       #imagen="ngModel"
+                       required
+                       pattern="https?://.+"
+                       placeholder="https://ejemplo.com/imagen.jpg">
+                <span class="error-message" [class.visible]="imagen.invalid && (imagen.dirty || imagen.touched || formSubmitted)">
+                  <span *ngIf="imagen.errors?.['required']">La URL de la imagen es requerida</span>
+                  <span *ngIf="imagen.errors?.['pattern']">Debe ser una URL válida que comience con http:// o https://</span>
+                </span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="cartaForm.invalid">{{ modoEdicion ? 'Editar Carta' : 'Crear Carta' }}</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="preview-container">
+          <app-tarjeta-carta [carta]="carta"></app-tarjeta-carta>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

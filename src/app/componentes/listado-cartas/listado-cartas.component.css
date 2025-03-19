@@ -1,0 +1,47 @@
+.container {
+  background-color: #053463; /* Ejemplo de color de fondo */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Ajusta el espacio entre los botones */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 4rem; /* Aumenta el tamaño de la fuente */
+  font-weight: bold; /* Hace el texto más grueso */
+  background: linear-gradient(90deg, #4a90e2, #ffffff); /* Degradado azul */
+  -webkit-background-clip: text; /* Corta el fondo para que se aplique solo al texto */
+  -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente para mostrar el degradado */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  text-align: center; /* Centra el texto */
+  font-family: 'Arial', sans-serif; /* Fuente del título */
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #4a90e2, transparent);
+  margin: 15px auto;
+}
+
+.title-container {
+  flex: 1;
+}
+
+.button-container {
+  margin-left: auto;
+}

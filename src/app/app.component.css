@@ -1,0 +1,9 @@
+.card-title {
+    font-size: 2em; /* Aumenta el tamaño de la fuente */
+    font-weight: bold; /* Hace el texto más grueso */
+    color: #ffcc00; /* Color dorado para el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; /* Centra el texto */
+    font-family: 'Arial', sans-serif; /* Fuente del título */
+  }

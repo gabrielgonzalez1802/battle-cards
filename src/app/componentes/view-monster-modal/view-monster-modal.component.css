@@ -1,0 +1,89 @@
+.yugioh-card {
+    width: 300px;
+    background: linear-gradient(45deg, #c4650da8, #381e03); /* Degradado claro para el fondo */
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 70px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    border: 2px solid #4a90e2;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .card-header {
+    background: linear-gradient(45deg, #1a237e, #4a90e2, #1a237e); /* Degradado de fondo */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .card-header h5 {
+    margin: 0;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  }
+  
+  .card-image-container {
+    position: relative;
+    height: 280px;
+    background: #000;
+    border: 3px solid #4a90e2;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .card-image {
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+    filter: brightness(1.2); /* Ajusta el brillo, 1 es el brillo normal, 1.2 es un 20% más brillante */
+    transition: filter 0.3s ease; /* Transición suave para el efecto */
+  }
+  
+  .card-image:hover {
+    filter: brightness(1.5); /* Aumenta el brillo al pasar el mouse */
+  }
+  
+  .card-type {
+    background: linear-gradient(to right, #1a237e, #0d47a1);
+    color: #fff;
+    padding: 5px;
+    text-align: right;
+    font-size: 0.9em;
+    border-radius: 3px;
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .card-description {
+    background: radial-gradient(circle, rgba(133, 144, 196, 0.9), rgba(21, 57, 187, 0.9)); /* Degradado radial */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    min-height: 80px;
+    border: 1px solid #4a90e2;
+    margin: 10px 0;
+    color: #000;
+  }
+  
+  .card-stats {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #1a237e;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .stat {
+    margin-left: 15px;
+    font-size: 1.2em;
+  }
+  
+  .stat-label {
+    color: #4a90e2;
+    font-size: 0.8em;
+  }

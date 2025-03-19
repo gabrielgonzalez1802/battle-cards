@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h5 class="modal-title">Detalles de la Carta</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="yugioh-card" *ngIf="carta">
+        <div class="card-header">
+            <h5>{{ carta.nombre | uppercase }}</h5>
+        </div>
+        
+        <div class="card-image-container">
+            <img [src]="carta.imagenUrl" class="card-image" [alt]="carta.nombre">
+        </div>
+    
+        <div class="card-type">
+            [{{ getTipoNombre(carta.tipoCarta) }}]
+        </div>
+    
+        <div class="card-description">
+            {{ carta.descripcion }}
+        </div>
+    
+        <div class="card-stats">
+            <div class="stat">
+                <span class="stat-label">ATK/</span>
+                {{ carta.ataque }}
+            </div>
+            <div class="stat">
+                <span class="stat-label">DEF/</span>
+                {{ carta.defensa }}
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">Cerrar</button>
+  </div>
